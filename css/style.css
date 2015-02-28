@@ -1,9 +1,28 @@
 body{
-	padding-top:40px;
+	padding-top:30px;
+    background: lightgray;
 }
 .row{
 	border:2px solid red;
 }
 img{
 	padding-top:10px;
+}
+.info{
+    padding-top: 10px;
+}
+hr{
+    background-color: black;
+    height: 2px;
+}
+
+
+@media only screen and (max-width: 40em)  {
+    body{
+        text-align: center;
+    }
+    img{
+        padding: 0px;
+    }
+
 }
