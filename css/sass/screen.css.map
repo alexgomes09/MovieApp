@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "screen.css",
+  "sources": [
+    "screen.sass"
+  ],
+  "sourcesContent": [],
+  "mappings": ";;;;;;AASA;EACC,AAAY;EACZ,AAAQ;;;AAET;EACC,AAAa;EACb,AARa;EASb,AAAY;EACZ,AAAa;;;AAEd;EACC,AAAY;EACZ,AAAW;;;AAEZ;EACC,AAAQ;;;AAET;EACC,AAAkB;EAClB,AAAQ;;;AAET;EACC,AAAS;;AAEV;;EACA;IACE,AAAS;IACT,AAAS;IACT,AAAa;IACb,AAAc",
+  "names": []
+}

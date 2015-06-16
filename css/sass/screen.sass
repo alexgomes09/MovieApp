@@ -5,17 +5,22 @@
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
 @import compass/css3
-
+@import _settings.sass
+	
+$body-radius: 20px
+	
 html
-	height: 100%
+	background: url('../images/background.jpg')
 
 body 
 	padding-top: 20px
-	background: gray
-	font-family: Roboto
-	
-.row 
-	min-width: 80%
+	border-radius: $body-radius 
+	background: lightgray
+
+.row
+	margin-top: 40px
+	max-width: 80%
+	font-family: Verdana
 
 .columns 
 	border: 1px solid black
@@ -25,7 +30,7 @@ hr
 	height: 2px
 
 footer
-	padding: 20px
+	padding: 10px
 
 @media only screen and (max-width: 50em) 
 	img 
