@@ -1,0 +1,97 @@
+@import "settings";
+@import "foundation";
+@import "reset";
+// Or selectively include components
+// @import
+//   "foundation/components/accordion",
+//   "foundation/components/alert-boxes",
+//   "foundation/components/block-grid",
+//   "foundation/components/breadcrumbs",
+//   "foundation/components/button-groups",
+//   "foundation/components/buttons",
+//   "foundation/components/clearing",
+//   "foundation/components/dropdown",
+//   "foundation/components/dropdown-buttons",
+//   "foundation/components/flex-video",
+//   "foundation/components/forms",
+//   "foundation/components/grid",
+//   "foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/magellan",
+//   "foundation/components/orbit",
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+//   "foundation/components/side-nav",
+//   "foundation/components/split-buttons",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switches",
+//   "foundation/components/tables",
+//   "foundation/components/tabs",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/top-bar",
+//   "foundation/components/type",
+//   "foundation/components/offcanvas",
+//   "foundation/components/visibility";
+html {
+	background: url("../images/background.jpg");
+	font-family: "Roboto",serif;
+	height: auto;
+}
+body{
+	margin-top: 25px;
+	background-color: transparent;
+}
+.row {
+	background-color: lighten(black,90%);
+	min-width: 85%;
+	border-radius: 5px;
+}
+
+.columns {
+	border: 1px solid red;
+	padding: 0px;
+	margin: 0px;
+}
+
+hr {
+	background-color: yellow;
+	height: 2px;
+}
+.sidebar{
+	h1{
+		color: black;
+		font-family: "Roboto",serif;
+		text-shadow: 1px 1px 8px blue;
+	}
+}
+.info{	
+	.search{
+		background-color: black;
+		i{
+			border: 1px solid red;
+			font-size: 35px;
+		}
+		input{
+			border: 1px solid black;
+			margin: 0px;
+			color: black;
+			height: 45px;
+			font-size: 19px;
+		}
+	}
+}
+
+@media only screen and (max-width: 50em) {
+	img {
+		padding: 0px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
