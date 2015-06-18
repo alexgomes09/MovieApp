@@ -77,9 +77,9 @@ theMovieDb.common = {
 		xhr.onload = function (e) {
 			if (xhr.readyState === 4) {
 				if (xhr.status === status) {
-					success(xhr.responseText);
+					success(JSON.parse(xhr.responseText));
 				} else {
-					error(xhr.responseText);
+					error(JSON.parse(xhr.responseText));
 				}
 			} else {
 				error(xhr.responseText);
@@ -90,7 +90,7 @@ theMovieDb.common = {
 			error(xhr.responseText);
 		};
 		if (options.method === "POST") {
-			xhr.send(JSON.stringify(options.body));
+			xhr.send(options.body);
 		} else {
 			xhr.send(null);
 		}

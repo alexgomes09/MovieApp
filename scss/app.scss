@@ -1,56 +1,32 @@
-@import "settings";
-@import "foundation";
+@import "foundation/components/grid";
+@import "foundation/components/block-grid";
+@import "foundation/components/clearing";
+@import "foundation/components/type";
 @import "reset";
-// Or selectively include components
-// @import
-//   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
-//   "foundation/components/block-grid",
-//   "foundation/components/breadcrumbs",
-//   "foundation/components/button-groups",
-//   "foundation/components/buttons",
-//   "foundation/components/clearing",
-//   "foundation/components/dropdown",
-//   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
-//   "foundation/components/forms",
-//   "foundation/components/grid",
-//   "foundation/components/inline-lists",
-//   "foundation/components/joyride",
-//   "foundation/components/keystrokes",
-//   "foundation/components/labels",
-//   "foundation/components/magellan",
-//   "foundation/components/orbit",
-//   "foundation/components/pagination",
-//   "foundation/components/panels",
-//   "foundation/components/pricing-tables",
-//   "foundation/components/progress-bars",
-//   "foundation/components/reveal",
-//   "foundation/components/side-nav",
-//   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
-//   "foundation/components/switches",
-//   "foundation/components/tables",
-//   "foundation/components/tabs",
-//   "foundation/components/thumbs",
-//   "foundation/components/tooltips",
-//   "foundation/components/top-bar",
-//   "foundation/components/type",
-//   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
+@import "settings";
+@import "compass/css3";
+@import "normalize";
+
+$textColor : white;
+$linkColor : #1BFF98;
+$iconColor : #1BFF98;
+
+
 html {
 	background: url("../images/background.jpg");
 	font-family: "Roboto",serif;
 	height: auto;
 }
 body{
-	margin-top: 25px;
+	margin-top: 5%;
 	background-color: transparent;
 }
+.container{
+	background-color: rgba(#082C22,0.8);
+}
 .row {
-	background-color: lighten(black,90%);
-	min-width: 85%;
-	border-radius: 5px;
+	min-width: 90%;
+	border-radius: 10px;
 }
 
 .columns {
@@ -65,24 +41,53 @@ hr {
 }
 .sidebar{
 	h1{
-		color: black;
+		color: white;
 		font-family: "Roboto",serif;
 		text-shadow: 1px 1px 8px blue;
 	}
 }
-.info{	
+.info{
+	h3{
+		color: white;
+	}
 	.search{
 		background-color: black;
+		padding: 10px;
+		table{
+			background: transparent;
+			margin-left: 10px;
+			tr td{
+				vertical-align: middle;
+				background: transparent;
+				padding: 0px;
+				margin: 0px;
+			}	
+		} 
 		i{
-			border: 1px solid red;
 			font-size: 35px;
+			color: $iconColor;
 		}
 		input{
-			border: 1px solid black;
+			border: none;
+			background: transparent;
 			margin: 0px;
-			color: black;
+			color: $linkColor;
 			height: 45px;
 			font-size: 19px;
+			letter-spacing: 1x;
+			padding: 0 10px;
+			@include transition-property(box-shadow,border);
+			@include transition-duration(2s);
+			@include transition-timing-function(ease);
+			@include input-placeholder{
+				color:$linkColor;
+				line-height:25px;
+			}
+		}
+		input:focus{
+			box-shadow: 0px 0px 10px $linkColor;
+			border: 1px solid rgba($linkColor,0.7);
+			outline: none;
 		}
 	}
 }
