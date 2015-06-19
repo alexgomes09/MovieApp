@@ -1,20 +1,15 @@
 app.controller('InfoController', ['$scope', 'MovieService', function ($scope, MovieService) {
 
-	MovieService.getMovie(2, "popularity.asc&primary_release_date.asc").then(function (data) {
-		for (i = 0; i < data.results.length; i++) {
-			//console.log(data.results[i].title +"  "+ data.results[i].release_date);
-
-			for (j = 0; j < data.results[i].genre_ids.length; j++) {}
-
-		}
-	});
-
 	MovieService.getPopularMovie(1).then(function (data) {
 		for (i = 0; i < data.results.length; i++) {
-			console.log(data.results[i].title+"  "+data.results[i].release_date);
-			//console.log(data.results[i].title +"  "+ data.results[i].release_date);
+//			console.log(data.results[i].poster_path);
+			MovieService.getImage("w300",data.results[i].poster_path).then(function(data){
+				$scope.image = data
+				
+				//console.log($scope.image)
+				
+			})			
 		}
 	});
-
 
 }])

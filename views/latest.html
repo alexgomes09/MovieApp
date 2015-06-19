@@ -1,0 +1,22 @@
+<div class="row collapse">
+	<table>
+		<tr ng-repeat="img in image track by $index">
+			<td><img src="{{img}}" alt="">
+			</td>
+		</tr>
+	</table>
+	<ul class="block-grid-4">
+		<li ng-repeat="(key,value) in image track by $index">
+			<!--							<img src="{{value}}" alt="">-->
+		</li>
+	</ul>
+	<div id="movieTitle">
+		<h3>The Lord of the Rings: The Fellowship of the Ring<br><br></h3>
+	</div>
+	<div id="movieInfo">
+		<h5>Released Date: </h5>
+		<h5>Director: </h5>
+		<h5>Synopsis:</h5>
+		<h5>Cast:</h5>
+	</div>
+</div>
