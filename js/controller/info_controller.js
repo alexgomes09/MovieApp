@@ -2,10 +2,12 @@ app.controller('InfoController', ['$scope', 'MovieService', function ($scope, Mo
 
 	MovieService.getPopularMovie(1).then(function (data) {
 		var popularMovies = [];
+		
 		for (var i = 0; i < data.results.length; i++) {
 			popularMovies.push(data.results[i]);
 		}
 		$scope.popularMovies = popularMovies;
+		$scope.imageSize = "w300";
 	});
 
 }])
@@ -13,4 +15,6 @@ app.controller('InfoController', ['$scope', 'MovieService', function ($scope, Mo
 //				popularMoviesImage.push(res);
 //				$scope.popularMoviesImage = popularMoviesImage;
 //			})
+
+
 	

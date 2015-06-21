@@ -10,6 +10,8 @@ $linkColor: #1BFF98;
 $iconColor: #1BFF98;
 html {
 	background: url("../images/background.jpg");
+	background-position: top;
+	background-attachment: fixed;
 	height: auto;
 }
 
@@ -34,8 +36,8 @@ body {
 }
 
 .columns {
-	margin: 0px;
-	padding: 0px;
+	// margin: 0px;
+	// padding: 0px;
 	border: 1px solid red;
 }
 

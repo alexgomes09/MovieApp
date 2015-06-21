@@ -1,6 +1,6 @@
 var app = angular.module("movieApp", ['ngRoute']);
 
-var rooturl = 'http://localhost/Movie_App/views/'
+var rooturl = 'http://localhost/Movie_App/views/';
 
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.

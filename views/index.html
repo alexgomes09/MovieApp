@@ -1,76 +1,77 @@
 <!DOCTYPE html>
 <html ng-app="movieApp">
-
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Movie App</title>
-	<meta http-equiv="refresh" content="1654654651648">
-	<!--	<link href='stylesheets/foundation.min.css' rel='stylesheet' type='text/css'>-->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:900,300,700,400' rel='stylesheet' type='text/css'>
-	<!--	<link href="stylesheets/reset.min.css" media="screen, projection" rel="stylesheet" type="text/css" />-->
-	<link rel="stylesheet" type="text/css" href="../stylesheets/fontello.css">
-	<link href="../stylesheets/app.css" media="screen, projection" rel="stylesheet" type="text/css" />
-
-</head>
-
-<body>
-	<div class="row collapse container">
-		<div class="medium-12 columns">
-			<div class="medium-2 columns sidebar" ng-controller="SidebarController">
-				<h1 class="text-center">Moviez</h1>
-				<table>
-					<tr ng-repeat="genre in movieGenres">
-						<td><a href="#/{{genre.name}}">{{genre.name}}</a>
-						</td>
-					</tr>
-				</table>
-			</div>
-
-			<div class="medium-10 columns no-pad" ng-controller="InfoController">
-				<div class="row collapse">
-					<div class="medium-6 columns search">
-						<table class="medium-centered">
-							<tr>
-								<td>
-									<i class="icon-search"></i>
-								</td>
-								<td>
-									<input class="medium-right" type="text" placeholder="Search Movies">
-								</td>
-							</tr>
-						</table>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Movie App</title>
+		<meta http-equiv="refresh" content="1654654651648">
+		<!-- <link href='stylesheets/foundation.min.css' rel='stylesheet' type='text/css'>-->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:900,300,700,400' rel='stylesheet' type='text/css'>
+		<!-- <link href="stylesheets/reset.min.css" media="screen, projection" rel="stylesheet" type="text/css" />-->
+		<link rel="stylesheet" type="text/css" href="../stylesheets/fontello.css">
+		<link href="../stylesheets/app.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="row collapse container">
+			<div class="medium-12 columns">
+				<div class="medium-2 columns sidebar" ng-controller="SidebarController">
+					<h1 class="text-center">Moviez</h1>
+					<table>
+						<tr ng-repeat="genre in movieGenres">
+							<td>
+								<a href="#/{{genre.name}}">{{genre.name}}</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="medium-10 columns no-pad" ng-controller="InfoController">
+					<div class="row collapse">
+						<div class="medium-6 columns search">
+							<table class="medium-centered">
+								<tr>
+									<td>
+										<i class="icon-search"></i>
+									</td>
+									<td>
+										<input class="medium-right" type="text" placeholder="Search Movies">
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="medium-6 columns top-link">
+							<ul class="small-block-grid-2 small-text-center medium-block-grid-4">
+								<li>
+									<a href="#/popular">Popular</a>
+								</li>
+								<li>
+									<a href="#/top_rated/">Top Rated</a>
+								</li>
+								<li>
+									<a href="#/upcoming/">Upcoming</a>
+								</li>
+								<li>
+									<a href="#/now_playing/">Now Playing</a>
+								</li>
+							</ul>
+						</div>
 					</div>
-					<div class="medium-6 columns top-link">
-						<ul class="small-block-grid-2 small-text-center medium-block-grid-4">
-							<li><a href="#/popular">Popular</a>
-							</li>
-							<li><a href="#/top_rated/">Top Rated</a>
-							</li>
-							<li><a href="#/upcoming/">Upcoming</a>
-							</li>
-							<li><a href="#/now_playing/">Now Playing</a>
-							</li>
-						</ul>
+					<div class="row collapsed">
+						<div ng-view=""></div>
 					</div>
 				</div>
-				<div ng-view=""></div>
-
 			</div>
 		</div>
-	</div>
-
-	<script src="../js/lib/jquery.min.js"></script>
-	<script src="../js/lib/angular.js"></script>
-	<script src="../js/lib/angular-route.min.js"></script>
-	<!--	<script src="../js/lib/modernizr.min.js"></script>-->
-	<!--	<script src="../js/lib/tmdb.js"></script>-->
-	<script src="../js/lib/themoviedb.js"></script>
-	<script src="../js/app.js"></script>
-	<script src="../js/factory/movie_service.js"></script>
-	<script src="../js/controller/info_controller.js"></script>
-	<script src="../js/controller/sidebar_controller.js"></script>
-	<script src="../js/main.js"></script>
-</body>
+		<script src="../js/lib/jquery.min.js"></script>
+		<script src="../js/lib/angular.js"></script>
+		<script src="../js/lib/angular-route.min.js"></script>
+		 <script src="../js/lib/modernizr.min.js"></script>
+		<!-- <script src="../js/lib/tmdb.js"></script>-->
+		<script src="../js/lib/themoviedb.js"></script>
+		<script src="../js/app.js"></script>
+		<script src="../js/factory/movie_service.js"></script>
+		<script src="../js/controller/info_controller.js"></script>
+		<script src="../js/controller/sidebar_controller.js"></script>
+		<script src="../js/main.js"></script>
+	</body>
 
 </html>
