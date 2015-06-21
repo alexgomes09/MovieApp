@@ -1,4 +1,4 @@
-angular.module('movieApp').controller('SidebarController', ['$scope', 'MovieService', function ($scope, MovieService) {
+app.controller('SidebarController', ['$scope', 'MovieService', function ($scope, MovieService) {
 
 //	$scope.movieGenres;
 //	MovieService.getMovieGenres().then(function(data){

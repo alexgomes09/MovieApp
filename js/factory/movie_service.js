@@ -31,13 +31,10 @@ app.service('MovieService', function ($q) {
 	// get single poster/backdrop image
 	movie.getImage = function(size,file){
 		var defer = $q.defer();
-		var a = [],obj={};
-		a.push(theMovieDb.common.getImage({
+		defer.resolve(theMovieDb.common.getImage({
 			"size": size,
 			"file":file
 		}))
-		obj = a;
-		defer.resolve(obj)
 		return defer.promise;
 	}
 	

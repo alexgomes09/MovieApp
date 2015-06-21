@@ -2,16 +2,15 @@ app.controller('InfoController', ['$scope', 'MovieService', function ($scope, Mo
 
 	MovieService.getPopularMovie(1).then(function (data) {
 		var popularMovies = [];
-		for (i = 0; i < data.results.length; i++) {
+		for (var i = 0; i < data.results.length; i++) {
 			popularMovies.push(data.results[i]);
 		}
-		$scope.data = popularMovies;
-		console.log(popularMovies)
+		$scope.popularMovies = popularMovies;
 	});
 
 }])
-
-
-//			MovieService.getImage("w300",data.results[i].poster_path).then(function(data){
-//				
+//			MovieService.getImage("w300", data.results[i].poster_path).then(function (res) {
+//				popularMoviesImage.push(res);
+//				$scope.popularMoviesImage = popularMoviesImage;
 //			})
+	

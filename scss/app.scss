@@ -14,7 +14,7 @@ html {
 }
 
 body {
-	margin: 5% 0 5%;
+	margin: 80px 0;
 	background-color: transparent;
 }
 
@@ -80,11 +80,8 @@ body {
 	padding: 10px;
 	table {
 		margin-left: 10px;
-		tr td {
-			vertical-align: middle;
-			background: transparent;
-			padding: 0px;
-			margin: 0px;
+		tr td:nth-child(2) {
+			width: 90%;
 		}
 	}
 	i {
@@ -92,6 +89,7 @@ body {
 		color: $iconColor;
 	}
 	input {
+		width: 100%;
 		border: none;
 		background: transparent;
 		margin: 0px;
