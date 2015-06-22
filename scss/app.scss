@@ -4,7 +4,7 @@
 @import "foundation/components/clearing";
 @import "foundation/components/type";
 @import "compass/css3";
-//@import "reset";
+// @import "reset";
 $textColor: white;
 $linkColor: #1BFF98;
 $iconColor: #1BFF98;
@@ -125,5 +125,24 @@ body {
 		}
 	}
 }
-
+.movie {
+	margin-top: 20px;
+	ul li h4{
+		color: black;
+		text-shadow: 0px 0px 5px black;
+	}	
+} 
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:white;
+	border-radius:5px;
+	padding:10px;
+	width: 400px;
+	color:black;
+	h4{
+		color: black;
+	}
+}
 @media only screen and (max-width: 50em) {}

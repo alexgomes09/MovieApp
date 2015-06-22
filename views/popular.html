@@ -1,14 +1,15 @@
-<div class="medium-12 columns" style="border:1px solid yellow">
-	<ul class="inline-list small-block-grid-1 medium-block-grid-4 left">
-		<li ng-repeat="movie in popularMovies track by $index">
-			<ul class="small-block-grid-1 medium-block-grid-2">
-				<li>
-					<img src="http://image.tmdb.org/t/p/{{imageSize}}/{{movie.poster_path}}" alt="{{movie.title}}">
-				</li>
-				<li>
-					<span>{{movie.title}}</span>
-				</li>
-			</ul>
+<div class="medium-12 columns movie">
+	<ul class="inline-list small-block-grid-1 medium-block-grid-4">
+		<li ng-repeat="movie in popularMovies track by $index" tooltip>
+			<div class="medium-12 columns no-pad">
+				<a href="#/{{movie.title}}">
+					<img src="http://image.tmdb.org/t/p/{{imageSize}}{{movie.poster_path}}" alt="{{movie.title}}"
+						 />
+				</a>
+			</div>
+			<div class="hide columns">
+				<span id="info">{{movie}}</span>
+			</div>
 		</li>
 	</ul>
 </div>
