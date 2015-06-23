@@ -4,23 +4,23 @@ var rooturl = 'http://localhost/Movie_App/views/';
 
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.
-		when('/popular', {
+	when('/popular', {
 		templateUrl: rooturl + '/popular.html',
 		controller: 'InfoController'
 	}).
-		when('/top_rated', {
+	when('/top_rated', {
 		templateUrl: rooturl + '/latest.html',
 		controller: 'InfoController'
 	}).
-		when('/upcoming', {
+	when('/upcoming', {
 		templateUrl: rooturl + '/latest.html',
 		controller: 'InfoController'
 	}).
-		when('/now_playing', {
+	when('/now_playing', {
 		templateUrl: rooturl + '/latest.html',
 		controller: 'InfoController'
 	}).
-		otherwise({
+	otherwise({
 		redirectTo: '/popular'
 	});
 }]);
@@ -50,42 +50,20 @@ app.filter('cut', function () {
 app.directive('tooltip', function () {
 	return function ($scope, element) {
 		$(element).hover(function () {
-			var info = $.parseJSON($(this).find('#info').text());
+			var movie = $.parseJSON($(this).find('#info').text());
 			
 			$('<div class="tooltip"></div>')
-				.html("<h4>" + info.title + "</h4>" + "<br>" + info.overview + "<br><br><strong>Released: </strong>" + info.release_date)
-				.appendTo('body')
-				.fadeIn('normal');
+			.html("<h4>" + movie.title + "</h4>" + "<strong>Genre: </strong>"+movie.genre_name+"<br><br>" + movie.overview + "<br><br><strong>Released: </strong>" + movie.release_date +
+				"<strong><br>Vote Count: </strong>"+ movie.vote_average.toFixed(1)+"/10"+"<br>")
+			.appendTo('body')
+			.fadeIn('normal');
 		}, function () {
-				$('.tooltip').remove();
-			}).mousemove(function (e) {
-			var mousex = e.pageX-200; //Get X coordinates
+			$('.tooltip').remove();
+		}).mousemove(function (e) {
+			var mousex = e.pageX-300; //Get X coordinates
 			var mousey = e.pageY - 50; //Get Y coordinates
 			$('.tooltip').css({ top: mousey, left: mousex });
 		});
 	}
 });
 
-
-// app.directive('tooltip', function () {
-// 	return function ($scope, element) {
-// 		$(element).hover(function () {
-// 			// Hover over code
-// 			var title = $(this).attr('title');
-// 			$(this).data('tipText', title).removeAttr('title');
-// 			$('<p class="tooltip"></p>')
-// 				.html(title)
-// 				.appendTo('body')
-// 				.fadeIn('normal');
-// 		}, function () {
-// 				// Hover out code
-// 				$(this).attr('title', $(this).data('tipText'));
-// 				$('.tooltip').remove();
-// 			}).mousemove(function (e) {
-// 			var mousex = e.pageX-200; //Get X coordinates
-// 			var mousey = e.pageY - 50; //Get Y coordinates
-// 			$('.tooltip')
-// 				.css({ top: mousey, left: mousex })
-// 		});
-// 	}
-// });

@@ -27,29 +27,30 @@ app.service('MovieService', function ($q) {
 		})
 		return defer.promise;
 	}
-	
-	// get single poster/backdrop image
-	movie.getImage = function(size,file){
+
+	movie.getGenreName = function (genList) {
 		var defer = $q.defer();
-		defer.resolve(theMovieDb.common.getImage({
-			"size": size,
-			"file":file
-		}))
-		return defer.promise;
-	}
-	
-	//get specific movie images
-	movie.getImages = function(id){
-		var defer = $q.defer();
-		theMovieDb.movies.getImages({
-			"id": id
-		}, function (res) {
-			defer.resolve(res);
-		}, function (err) {
-			defer.reject(err)
-		})
+		theMovieDb.genres.getList({},
+			function (res) {
+				var customArray = [];
+				var actualArray = [];
+				for (var i = 0; i < res.genres.length; i++) {
+					customArray.push(res.genres[i].id);
+				}
+				for (var i = 0; i < genList.length; i++) {
+					actualArray.push(res.genres[customArray.indexOf(genList[i])].name)
+				};
+				defer.resolve(actualArray);
+			},
+			function (err) {
+				defer.reject(err);
+			})
 		return defer.promise;
 	}
 
 	return movie;
 })
+
+function arraysEqual(a1,a2) {
+	return JSON.stringify(a1)==JSON.stringify(a2);
+}
