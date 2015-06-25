@@ -1,11 +1,7 @@
-app.controller('SingleViewController', ['$scope','$routeParams', 'MovieService', function ($routeParams,$scope, MovieService) {
+app.controller('SingleViewController', ['$scope', 'MovieService', function ($scope, MovieService) {
 
 	MovieService.getSingleView().then(function(res){
 		$scope.singleMovie = res;	
-		console.log($scope.singleMovie)
 	})
 
 }]);
-
-
-

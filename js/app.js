@@ -5,10 +5,10 @@ var rooturl = 'http://localhost/Movie_App/views/';
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.
 	when('/popular', {
-		templateUrl: rooturl + '/popular.html',
+		templateUrl: rooturl + 'popular.html',
 		controller: 'InfoController'
 	}).
-	when('/views/:id',{
+	when('/movie',{
 		templateUrl:rooturl+'single_view.html',
 		controller:'SingleViewController'
 	}).

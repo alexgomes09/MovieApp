@@ -1,4 +1,12 @@
 <div class="medium-12 columns movie">
-	
-	<p>{{singleMovie}}</p>
+
+	{{singleMovie}}
+	<ul class="inline-list small-block-grid-1 medium-block-grid-4">
+		<li ng-repeat="movie in popularMovies track by $index" tooltip>
+			<a href="#/{{movie.title}}" ng-click="setSingleView(movie)">
+				<img ng-src="http://image.tmdb.org/t/p/{{imageSize}}{{movie.poster_path}}" alt="{{movie.title}}"/>
+			</a>
+			<span class="hide" id="info">{{movie}}</span>
+		</li>
+	</ul>
 </div>

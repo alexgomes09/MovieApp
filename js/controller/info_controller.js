@@ -26,3 +26,5 @@ app.controller('InfoController', ['$scope', 'MovieService', function ($scope, Mo
 
 
 
+
+
