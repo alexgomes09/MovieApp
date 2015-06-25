@@ -8,17 +8,9 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl: rooturl + '/popular.html',
 		controller: 'InfoController'
 	}).
-	when('/top_rated', {
-		templateUrl: rooturl + '/latest.html',
-		controller: 'InfoController'
-	}).
-	when('/upcoming', {
-		templateUrl: rooturl + '/latest.html',
-		controller: 'InfoController'
-	}).
-	when('/now_playing', {
-		templateUrl: rooturl + '/latest.html',
-		controller: 'InfoController'
+	when('/views/:id',{
+		templateUrl:rooturl+'single_view.html',
+		controller:'SingleViewController'
 	}).
 	otherwise({
 		redirectTo: '/popular'
@@ -56,7 +48,7 @@ app.directive('tooltip', function () {
 			.html("<h4>" + movie.title + "</h4>" + "<strong>Genre: </strong>"+movie.genre_name+"<br><br>" + movie.overview + "<br><br><strong>Released: </strong>" + movie.release_date +
 				"<strong><br>Vote Count: </strong>"+ movie.vote_average.toFixed(1)+"/10"+"<br>")
 			.appendTo('body')
-			.fadeIn('normal');
+			.fadeIn('fast');
 		}, function () {
 			$('.tooltip').remove();
 		}).mousemove(function (e) {

@@ -1,7 +1,15 @@
 app.service('MovieService', function ($q) {
 
 	var movie = this;
-
+	var singleViewData = {};
+	movie.setSingleView = function(data){
+		singleViewData = data;
+	}
+	movie.getSingleView = function(){
+		var defer = $q.defer();
+		defer.resolve(singleViewData)
+		return defer.promise;
+	}
 	//genre
 	movie.getMovieGenres = function () {
 		var defer = $q.defer();

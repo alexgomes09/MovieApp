@@ -19,7 +19,7 @@
 				<table>
 					<tr ng-repeat="genre in movieGenres">
 						<td>
-							<a href="#/{{genre.name}}">{{genre.name}}</a>
+							<a ng-href="#/{{genre.name}}">{{genre.name}}</a>
 						</td>
 					</tr>
 				</table>
@@ -27,7 +27,7 @@
 			
 			<div class="medium-10 columns no-pad">
 				<div class="row collapse">
-					<div class="medium-6 columns search">
+					<div class="medium-5 columns search">
 						<table class="medium-centered">
 							<tr>
 								<td>
@@ -39,13 +39,13 @@
 							</tr>
 						</table>
 					</div>
-					<div class="medium-6 columns top-link">
+					<div class="medium-7 columns top-link">
 						<ul class="small-block-grid-2 small-text-center medium-block-grid-4">
 							<li>
 								<a href="#/popular">Popular</a>
 							</li>
 							<li>
-								<a href="#/top_rated/">Top Rated</a>
+								<a ng-href="#/top_rated/">Top Rated</a>
 							</li>
 							<li>
 								<a href="#/upcoming/">Upcoming</a>
@@ -69,8 +69,9 @@
 	<script src="../js/lib/themoviedb.js"></script>
 	<script src="../js/app.js"></script>
 	<script src="../js/factory/movie_service.js"></script>
-	<script src="../js/controller/info_controller.js"></script>
 	<script src="../js/controller/sidebar_controller.js"></script>
+	<script src="../js/controller/info_controller.js"></script>
+	<script src="../js/controller/single_view_controller.js"></script>
 	<script src="../js/main.js"></script>
 </body>
 

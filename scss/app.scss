@@ -8,6 +8,11 @@
 $textColor: white;
 $linkColor: #1BFF98;
 $iconColor: #1BFF98;
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 html {
 	background: url("../images/background.jpg");
 	background-position: top;
@@ -38,7 +43,7 @@ body {
 .columns {
 	// margin: 0px;
 	// padding: 0px;
-	border: 1px solid red;
+	border: 1px solid transparent;
 }
 
 .sidebar {
@@ -127,20 +132,26 @@ body {
 }
 .movie {
 	margin-top: 20px;
-	ul li h4{
+	ul li img:hover{
+		 	border:1px solid $linkColor; 
+		 	@include transform(scale(1.03));
+			@include single-transition(transform,0.3s,ease-in-out);
+		}
+		h4{
 		color: black;
-		text-shadow: 0px 0px 5px black;
+		text-shadow: 0px 0px px black;
 	}	
 } 
 .tooltip {
 	display:none;
 	position:absolute;
-	border:1px solid #333;
+	border:1px solid $linkColor;
 	background-color:white;
 	border-radius:5px;
 	padding:10px;
 	max-width: 500px;
 	color:black;
+	box-shadow: 5px 5px 50px darken(gray, 50%);
 	h4{
 		color: black;
 	}
