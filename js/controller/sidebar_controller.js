@@ -2,6 +2,6 @@ app.controller('SidebarController', ['$scope', 'MovieService', function ($scope,
 
 	$scope.movieGenres;
 	MovieService.getMovieGenres().then(function(data){
-		//$scope.movieGenres = data.genres;
+		$scope.movieGenres = data.genres;
 	})
 }])

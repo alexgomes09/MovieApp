@@ -1,12 +1,10 @@
 <div class="medium-12 columns movie">
 
-	{{singleMovie}}
-	<ul class="inline-list small-block-grid-1 medium-block-grid-4">
-		<li ng-repeat="movie in popularMovies track by $index" tooltip>
-			<a href="#/{{movie.title}}" ng-click="setSingleView(movie)">
-				<img ng-src="http://image.tmdb.org/t/p/{{imageSize}}{{movie.poster_path}}" alt="{{movie.title}}"/>
-			</a>
-			<span class="hide" id="info">{{movie}}</span>
-		</li>
-	</ul>
+	<div class="medium-4 columns">
+		<img ng-src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.title}}"/>
+	</div>
+	<div class="medium-8 columns">
+		<h2>{{movie.title}}</h2>
+	</div>
+	<!-- <p ng-if="singleMovie !== empty">{{singleMovie}}</p> -->
 </div>

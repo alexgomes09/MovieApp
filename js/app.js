@@ -8,7 +8,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl: rooturl + 'popular.html',
 		controller: 'InfoController'
 	}).
-	when('/movie',{
+	when('/:movie',{
 		templateUrl:rooturl+'single_view.html',
 		controller:'SingleViewController'
 	}).
@@ -43,9 +43,9 @@ app.directive('tooltip', function () {
 	return function ($scope, element) {
 		$(element).hover(function () {
 			var movie = $.parseJSON($(this).find('#info').text());
-			
+			$('.tooltip').css('transform','scale(1.25)');			
 			$('<div class="tooltip"></div>')
-			.html("<h4>" + movie.title + "</h4>" + "<strong>Genre: </strong>"+movie.genre_name+"<br><br>" + movie.overview + "<br><br><strong>Released: </strong>" + movie.release_date +
+			.html("<h4>" + movie.title + "</h4>" + "<strong>Genre: </strong>"+movie.genre_name+"<br><br><strong>Overview: </strong>" + movie.overview + "<br><br><strong>Released: </strong>" + movie.release_date +
 				"<strong><br>Vote Count: </strong>"+ movie.vote_average.toFixed(1)+"/10"+"<br>")
 			.appendTo('body')
 			.fadeIn('fast');
@@ -55,7 +55,21 @@ app.directive('tooltip', function () {
 			var mousex = e.pageX-300; //Get X coordinates
 			var mousey = e.pageY - 50; //Get Y coordinates
 			$('.tooltip').css({ top: mousey, left: mousex });
+		}).on("click",function(){
+			$('.tooltip').remove();
 		});
 	}
 });
+
+app.directive('link',function(){
+	return {
+		restrict: 'A',
+		link: function($scope,element,attrs){
+			var link = attrs.href;
+			var customizedLink = $scope.movie.title.replace(/ /g,"_");
+			$scope.test = customizedLink;
+		}
+	}
+
+})
 
