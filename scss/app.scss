@@ -43,7 +43,7 @@ body {
 .columns {
 	// margin: 0px;
 	// padding: 0px;
-	// border: 1px solid red;
+	border: 1px solid red;
 }
 
 .sidebar {
@@ -138,9 +138,11 @@ body {
 		@include transform(scale(1.03));
 		@include single-transition(transform,0.3s,ease-in-out);
 	}
-	h4{
-		text-shadow: 0px 0px 5px $linkColor;
-	}	
+	.genre-list li{
+		list-style: none;
+		display: inline-block;
+		padding-right: 10px;
+	}
 } 
 .tooltip {
 	display:none;

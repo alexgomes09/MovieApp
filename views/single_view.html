@@ -1,10 +1,20 @@
 <div class="medium-12 columns movie">
 
-	<div class="medium-4 columns">
+	<div class="medium-4 columns no-pad">
 		<img ng-src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.title}}"/>
 	</div>
 	<div class="medium-8 columns">
-		<h2>{{movie.title}}</h2>
+		<h2>{{movie.title}}</h2>({{movie.release_date}})
+		<ul class="genre-list no-pad">
+			<li ng-repeat="genre in movie.genre_name">
+				<h5>{{genre}}</h5>
+			</li>
+		</ul>
+		<br><br>
+		<p><strong>Overview<br></strong></p>
+		<p>{{movie.overview}}</p>
+		<br>
+		<p></p>
 	</div>
 	<!-- <p ng-if="singleMovie !== empty">{{singleMovie}}</p> -->
 </div>
