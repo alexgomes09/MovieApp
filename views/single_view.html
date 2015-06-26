@@ -4,10 +4,12 @@
 		<img ng-src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.title}}"/>
 	</div>
 	<div class="medium-8 columns">
-		<h2>{{movie.title}}</h2>({{movie.release_date}})
+
+		<h2 style="display: inline">{{movie.title}}</h2>
+		<span>({{movie.release_date}})</span>
 		<ul class="genre-list no-pad">
-			<li ng-repeat="genre in movie.genre_name">
-				<h5>{{genre}}</h5>
+			<li ng-repeat="genre in movie.genre_name track by $index">
+				<h5>{{genre}},</h5>
 			</li>
 		</ul>
 		<br><br>
