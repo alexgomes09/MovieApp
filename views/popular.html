@@ -1,5 +1,5 @@
 <div class="medium-12 columns movie">
-	<ul class="inline-list small-block-grid-1 medium-block-grid-4">
+	<ul class="inline-list small-block-grid-1 small-text-center medium-block-grid-5">
 		<li ng-repeat="movie in popularMovies track by $index" tooltip>
 			<a link href="#/{{test}}" ng-click="setSingleView(movie)">
 				<img ng-src="http://image.tmdb.org/t/p/{{imageSize}}{{movie.poster_path}}" alt="{{movie.title}}"/>

@@ -1,22 +1,29 @@
 <div class="medium-12 columns movie">
 
-	<div class="medium-4 columns no-pad">
-		<img ng-src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.title}}"/>
+	<div class="medium-4 columns no-pad medium-text-center">
+		<img ng-src="http://image.tmdb.org/t/p/{{imageSize}}{{movie.poster_path}}" alt="{{movie.title}}"/>
 	</div>
 	<div class="medium-8 columns">
-
-		<h2 style="display: inline">{{movie.title}}</h2>
-		<span>({{movie.release_date}})</span>
+		<h2 style="display: inline">{{movie.title}} </h2><span>&nbsp ({{movie.release_date | date: 'yyyy-MMMM-d'}})</span>
 		<ul class="genre-list no-pad">
 			<li ng-repeat="genre in movie.genre_name track by $index">
-				<h5>{{genre}},</h5>
+				<h6>{{genre}},</h6>
 			</li>
 		</ul>
 		<br><br>
-		<p><strong>Overview<br></strong></p>
+		<h4>Overview<br></h4>
 		<p>{{movie.overview}}</p>
 		<br>
-		<p></p>
-	</div>
-	<!-- <p ng-if="singleMovie !== empty">{{singleMovie}}</p> -->
+		<h4>Cast<br></h4>
+		<ul class="orbit inline-list small-block-grid-2 small-text-centere medium-block-grid-4 medium-text-left"
+		data-orbit>
+		<li data-carosel ng-repeat="cast in casts">
+			<img ng-src="http://image.tmdb.org/t/p/w185/{{cast.profile_path}}" alt="{{cast.profile_path}}"
+			onerror="this.src='../images/image-not-found.png'"/>
+			<span>{{cast.name}}</span> <br>
+			<span>as {{cast.character}}</span>
+		</li>
+	</ul>
+</div>
+<!-- <p ng-if="singleMovie !== empty">{{singleMovie}}</p> -->
 </div>

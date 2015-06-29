@@ -36,6 +36,7 @@ app.service('MovieService', function ($q) {
 		return defer.promise;
 	}
 
+	//get genre name because genre_id is given
 	movie.getGenreName = function (genList) {
 		var defer = $q.defer();
 		theMovieDb.genres.getList({},
@@ -53,6 +54,19 @@ app.service('MovieService', function ($q) {
 			function (err) {
 				defer.reject(err);
 			})
+		return defer.promise;
+	}
+
+	// get popular movie with certain parameter
+	movie.getCredit = function (id) {
+		var defer = $q.defer()
+		theMovieDb.movies.getCredits({
+			"id": id
+		}, function (res) {
+			defer.resolve(res);
+		}, function (err) {
+			defer.reject(err)
+		})
 		return defer.promise;
 	}
 

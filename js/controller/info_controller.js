@@ -15,7 +15,7 @@ app.controller('InfoController', ['$scope', 'MovieService', function ($scope, Mo
 			});
 		}
 		$scope.popularMovies = popularMovies;
-		$scope.imageSize = "w300";
+		$scope.imageSize = "w185";
 	});
 
 	$scope.setSingleView = function(data){

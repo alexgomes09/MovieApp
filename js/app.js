@@ -39,27 +39,30 @@ app.filter('cut', function () {
 });
 
 
-app.directive('tooltip', function () {
+app.directive('tooltip',[ '$filter' ,function ($filter) {
 	return function ($scope, element) {
 		$(element).hover(function () {
 			var movie = $.parseJSON($(this).find('#info').text());
 			$('.tooltip').css('transform','scale(1.25)');			
 			$('<div class="tooltip"></div>')
-			.html("<h4>" + movie.title + "</h4>" + "<strong>Genre: </strong>"+movie.genre_name+"<br><br><strong>Overview: </strong>" + movie.overview + "<br><br><strong>Released: </strong>" + movie.release_date +
+			.html("<h4>" + movie.title + "</h4>" + 
+				"<strong>Genre: </strong>"+movie.genre_name+
+				"<br><br><strong>Overview: </strong>" + movie.overview + 
+				"<br><br><strong>Released: </strong>" + $filter('date')(movie.release_date,"yyyy-MMMM-d") +
 				"<strong><br>Vote Count: </strong>"+ movie.vote_average.toFixed(1)+"/10"+"<br>")
 			.appendTo('body')
 			.fadeIn('fast');
 		}, function () {
 			$('.tooltip').remove();
 		}).mousemove(function (e) {
-			var mousex = e.pageX-300; //Get X coordinates
-			var mousey = e.pageY - 50; //Get Y coordinates
-			$('.tooltip').css({ top: mousey, left: mousex });
-		}).on("click",function(){
-			$('.tooltip').remove();
-		});
-	}
+	var mousex = e.pageX-300; //Get X coordinates
+	var mousey = e.pageY - 50; //Get Y coordinates
+	$('.tooltip').css({ top: mousey, left: mousex });
+}).on("click",function(){
+	$('.tooltip').remove();
 });
+}
+}]);
 
 app.directive('link',function(){
 	return {
@@ -71,5 +74,26 @@ app.directive('link',function(){
 		}
 	}
 
+})
+
+app.directive('carosel',function(){
+	return function($scope,element,attrs){
+
+		if($scope.$last){
+			$(document).foundation();
+			$(element).foundation({
+				orbit: {
+					animation: 'slide',
+					timer_speed: 1000,
+					pause_on_hover: true,
+					animation_speed: 500,
+					navigation_arrows: true,
+					bullets: false
+				}
+			});	
+		}
+
+		
+	}
 })
 
