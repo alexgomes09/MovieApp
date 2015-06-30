@@ -1,8 +1,10 @@
 @import "settings";
 @import "foundation/components/grid";
 @import "foundation/components/block-grid";
+@import "foundation/components/buttons";
 @import "foundation/components/clearing";
 @import "foundation/components/type";
+@import "foundation/components/reveal";
 @import "compass/css3";
 // @import "reset";
 $textColor: white;
@@ -43,7 +45,7 @@ body {
 .columns {
 	// margin: 0px;
 	// padding: 0px;
-	// border: 1px solid red;
+	border: 1px solid red;
 }
 
 .sidebar {
@@ -158,4 +160,80 @@ body {
 		color: black;
 	}
 }
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.2em;
+}
+// .rating > span:hover,
+// .rating > span:hover ~ span {
+//   color: transparent;
+// }
+// .rating > span:hover:before,
+// .rating > span:hover ~ span:before {
+//    content: "\2605";
+//    position: absolute;
+//    left: 0; 
+//    color: gold;
+// }
+
+
+.reveal-modal{
+  min-height: 500px;
+  max-height: 500px;
+  overflow: auto;
+  padding-top:60px;
+  .close-reveal-modal{
+		color:red;
+	}
+}
+
+.ng-modal {
+  transition: 0.2s ease-in-out opacity;
+}
+
+.ng-modal .reveal-modal {
+  display: block;
+  visibility: visible;
+  position: fixed;
+}
+
+.ng-modal .reveal-modal-bg {
+  display: block;
+}
+
+.ng-modal.ng-hide-add,
+.ng-modal.ng-hide-remove{
+  display: block !important;
+}
+
+.ng-modal.ng-hide{
+  opacity: 0;
+}
+
+.reveal-modal{
+  transition: 0.2s ease-in-out all;
+  transition-delay: 0.2s;
+  -webkit-transform: scale(1);
+  opacity: 1;
+}
+
+.reveal-modal.ng-hide-add,
+.reveal-modal.ng-hide-remove{
+  display: block !important;
+}
+
+.reveal-modal.ng-hide{
+  -webkit-transform: scale(0.9);
+  opacity: 0;
+}
+
+
+
 @media only screen and (max-width: 50em) {}

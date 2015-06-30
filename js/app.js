@@ -1,6 +1,6 @@
 var app = angular.module("movieApp", ['ngRoute']);
 
-var rooturl = 'http://localhost/Movie_App/views/';
+var rooturl = '../views/';
 
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.
@@ -76,24 +76,49 @@ app.directive('link',function(){
 
 })
 
-app.directive('carosel',function(){
-	return function($scope,element,attrs){
+app.directive('modal', function() {
+	return {
+		restrict: 'E',
+		scope: {
+			show: '='
+		},
+    replace: true, // Replace with the template below
+    transclude: true, // we want to insert custom content inside the directive
+    link: function(scope, element, attrs) {
+    	scope.hideModal = function() {
+    		scope.show = false;
+    		$('body').css('overflow', 'auto');
+    	};
+    },
+    template: "<div class='ng-modal' ng-show='show'>"+
+    "<div class='reveal-modal' ng-show='show'>"+
+    "<div ng-transclude></div>"+
+    "<a class='close-reveal-modal' ng-click='hideModal()'>&#215;</a>"+
+    "</div>"+
+    "<div class='reveal-modal-bg' ng-click='hideModal()'></div>"+
+    "</div>"
+};
+});
 
-		if($scope.$last){
-			$(document).foundation();
-			$(element).foundation({
-				orbit: {
-					animation: 'slide',
-					timer_speed: 1000,
-					pause_on_hover: true,
-					animation_speed: 500,
-					navigation_arrows: true,
-					bullets: false
-				}
-			});	
-		}
 
-		
-	}
-})
+// app.directive("rating",function($compile){
+// 	return{
+// 		restrict:"A",
+// 		link:function($scope,element,attrs){
+// 			setTimeout(function () {
+// 				var html = '<span>' + $scope.movie.title + '</span>';
+// 				var star = [];
+// 				for (var i = 0; i <= 9; i++) {
+// 					star.push('<span>☆</span>');
+// 				}
+
+// 				var a = star.join("");
+// 				var e = $compile(a+html)($scope);
+
+// 				element.replaceWith(e);
+// 			});
+// }
+// } 
+// })
+
 

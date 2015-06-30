@@ -10,5 +10,10 @@ app.controller('SingleViewController', ['$scope', 'MovieService', function ($sco
 		})
 	})
 
+	$scope.modalShown = false;
+	$scope.toggleModal = function(){
+		$scope.modalShown = !$scope.modalShown;
+	}
+
 
 }]);
