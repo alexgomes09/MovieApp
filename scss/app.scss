@@ -47,7 +47,9 @@ body {
 	// padding: 0px;
 	border: 1px solid red;
 }
-
+ul li{
+	list-style: none;
+}
 .sidebar {
 	h1 {
 		color: black;
@@ -134,18 +136,20 @@ body {
 	}
 }
 .movie {
-	margin-top: 20px;
 	ul li img:hover{
 		border:1px solid $linkColor; 
 		@include transform(scale(1.03));
 		@include single-transition(transform,0.3s,ease-in-out);
 	}
-	.genre-list li{
+} 
+.genre-list{
+	 li{
 		list-style: none;
 		display: inline-block;
 		padding-right: 10px;
 	}
-} 
+}
+
 .tooltip {
 	display:none;
 	position:absolute;

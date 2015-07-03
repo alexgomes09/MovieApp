@@ -1,4 +1,4 @@
-var app = angular.module("movieApp", ['ngRoute']);
+var app = angular.module("movieApp", ['ngRoute','angular-carousel']);
 
 var rooturl = '../views/';
 
@@ -67,10 +67,10 @@ app.directive('tooltip',[ '$filter' ,function ($filter) {
 app.directive('link',function(){
 	return {
 		restrict: 'A',
-		link: function($scope,element,attrs){
+		link: function($scope,attrs){
 			var link = attrs.href;
 			var customizedLink = $scope.movie.title.replace(/ /g,"_");
-			$scope.test = customizedLink;
+			$scope.customizedLink = customizedLink;
 		}
 	}
 
@@ -100,23 +100,29 @@ app.directive('modal', function() {
 };
 });
 
-
+app.directive('slick',function($timeout){
+	return function(scope, el, attrs) {
+		if(scope.$last){
+			$(document).foundation()
+		}
+	}
+})
 // app.directive("rating",function($compile){
-// 	return{
-// 		restrict:"A",
-// 		link:function($scope,element,attrs){
-// 			setTimeout(function () {
-// 				var html = '<span>' + $scope.movie.title + '</span>';
-// 				var star = [];
-// 				for (var i = 0; i <= 9; i++) {
-// 					star.push('<span>☆</span>');
-// 				}
+	// 	return{
+		// 		restrict:"A",
+		// 		link:function($scope,element,attrs){
+			// 			setTimeout(function () {
+				// 				var html = '<span>' + $scope.movie.title + '</span>';
+				// 				var star = [];
+				// 				for (var i = 0; i <= 9; i++) {
+					// 					star.push('<span>☆</span>');
+					// 				}
 
-// 				var a = star.join("");
-// 				var e = $compile(a+html)($scope);
+					// 				var a = star.join("");
+					// 				var e = $compile(a+html)($scope);
 
-// 				element.replaceWith(e);
-// 			});
+					// 				element.replaceWith(e);
+					// 			});
 // }
 // } 
 // })

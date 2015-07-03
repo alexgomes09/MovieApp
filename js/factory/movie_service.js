@@ -1,13 +1,37 @@
-app.service('MovieService', function ($q) {
+app.service('MovieService', function ($q, $location) {
 
 	var movie = this;
-	var singleViewData = {};
-	movie.setSingleView = function(data){
-		singleViewData = data;
+	var singleMovieId;
+	movie.setSingleView = function(movieID){
+		singleMovieId = movieID;
 	}
 	movie.getSingleView = function(){
 		var defer = $q.defer();
-		defer.resolve(singleViewData)
+		if(singleMovieId !== undefined || singleMovieId >=1){
+			theMovieDb.movies.getById({
+				"id":singleMovieId
+			},function(res){
+				defer.resolve(res);
+			},function(err){
+				defer.reject(err);
+			});
+		}else{
+			$location.path('/popular');
+		}
+
+		return defer.promise;
+	}
+
+	//get single movie backdrop/poster image
+	movie.getImages = function(){
+		var defer = $q.defer();
+		theMovieDb.movies.getImages({
+			"id":singleMovieId
+		},function(res){
+			defer.resolve(res)
+		},function(err){
+			defer.reject(err)
+		})
 		return defer.promise;
 	}
 	//genre
@@ -36,6 +60,20 @@ app.service('MovieService', function ($q) {
 		return defer.promise;
 	}
 
+	// get popular movie with certain parameter
+	movie.getCredit = function (id) {
+		var defer = $q.defer()
+		theMovieDb.movies.getCredits({
+			"id": id
+		}, function (res) {
+			defer.resolve(res);
+		}, function (err) {
+			defer.reject(err)
+		})
+		return defer.promise;
+	}
+
+
 	//get genre name because genre_id is given
 	movie.getGenreName = function (genList) {
 		var defer = $q.defer();
@@ -57,22 +95,6 @@ app.service('MovieService', function ($q) {
 		return defer.promise;
 	}
 
-	// get popular movie with certain parameter
-	movie.getCredit = function (id) {
-		var defer = $q.defer()
-		theMovieDb.movies.getCredits({
-			"id": id
-		}, function (res) {
-			defer.resolve(res);
-		}, function (err) {
-			defer.reject(err)
-		})
-		return defer.promise;
-	}
 
 	return movie;
 })
-
-function arraysEqual(a1,a2) {
-	return JSON.stringify(a1)==JSON.stringify(a2);
-}
