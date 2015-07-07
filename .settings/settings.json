@@ -1,8 +1,0 @@
-// Place your settings in this file to overwrite default and user settings.
-{
-	"editor.fontFamily": "Consolas",
-	"editor.formatOnType": true,
-	"editor.quickSuggestionsDelay": 0,
-	"javascript.suggest.alwaysAllWords": true,
-	"javascript.suggest.useCodeSnippetsOnMethodSuggest": true
-}

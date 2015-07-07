@@ -1,4 +1,4 @@
-var app = angular.module("movieApp", ['ngRoute','angular-carousel']);
+var app = angular.module("movieApp", ['ngRoute']);
 
 var rooturl = '../views/';
 
@@ -43,9 +43,9 @@ app.directive('tooltip',[ '$filter' ,function ($filter) {
 	return function ($scope, element) {
 		$(element).hover(function () {
 			var movie = $.parseJSON($(this).find('#info').text());
-			$('.tooltip').css('transform','scale(1.25)');			
-			$('<div class="tooltip"></div>')
-			.html("<h4>" + movie.title + "</h4>" + 
+			$('.movieTooltip').css('transform','scale(1.25)');			
+			$('<div class="movieTooltip"></div>')
+			.html("<h3>" + movie.title + "</h3>" + 
 				"<strong>Genre: </strong>"+movie.genre_name+
 				"<br><br><strong>Overview: </strong>" + movie.overview + 
 				"<br><br><strong>Released: </strong>" + $filter('date')(movie.release_date,"yyyy-MMMM-d") +
@@ -53,15 +53,15 @@ app.directive('tooltip',[ '$filter' ,function ($filter) {
 			.appendTo('body')
 			.fadeIn('fast');
 		}, function () {
-			$('.tooltip').remove();
+			$('.movieTooltip').remove();
 		}).mousemove(function (e) {
-	var mousex = e.pageX-300; //Get X coordinates
-	var mousey = e.pageY - 50; //Get Y coordinates
-	$('.tooltip').css({ top: mousey, left: mousex });
-}).on("click",function(){
-	$('.tooltip').remove();
-});
-}
+			var mousex = e.pageX -200; //Get X coordinates
+			var mousey = e.pageY +20; //Get Y coordinates
+			$('.movieTooltip').css({ top: mousey, left: mousex });
+		}).on("click",function(){
+			$('.movieTooltip').remove();
+		});
+	}
 }]);
 
 app.directive('link',function(){
@@ -99,32 +99,4 @@ app.directive('modal', function() {
     "</div>"
 };
 });
-
-app.directive('slick',function($timeout){
-	return function(scope, el, attrs) {
-		if(scope.$last){
-			$(document).foundation()
-		}
-	}
-})
-// app.directive("rating",function($compile){
-	// 	return{
-		// 		restrict:"A",
-		// 		link:function($scope,element,attrs){
-			// 			setTimeout(function () {
-				// 				var html = '<span>' + $scope.movie.title + '</span>';
-				// 				var star = [];
-				// 				for (var i = 0; i <= 9; i++) {
-					// 					star.push('<span>☆</span>');
-					// 				}
-
-					// 				var a = star.join("");
-					// 				var e = $compile(a+html)($scope);
-
-					// 				element.replaceWith(e);
-					// 			});
-// }
-// } 
-// })
-
 

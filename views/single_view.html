@@ -1,15 +1,14 @@
-<br>
-<div class="medium-12 columns">
-
-	<div class="medium-4 columns no-pad medium-text-center">
-		<img ng-src="http://image.tmdb.org/t/p/{{imageSize}}{{movie.poster_path}}" alt="{{movie.title}}"/>
+<div class="col-md-12 single-view">
+	<br>
+	<div class="col-md-4 columns">
+		<img class="img-rounded img-responsive" ng-src="http://image.tmdb.org/t/p/{{imageSize}}{{movie.poster_path}}" alt="{{movie.title}}"/>
 	</div>
 
-	<div class="medium-8 columns">
+	<div class="col-md-8 columns">
 		<h2 style="display: inline">{{movie.title}} </h2><span>&nbsp ({{movie.release_date | date: 'yyyy-MMMM-d'}})</span>
 		<ul class="genre-list no-pad">
 			<li ng-repeat="genre in movie.genres track by $index">
-				<h6>{{genre.name}},</h6>
+				<p>{{genre.name}},</p>
 			</li>
 			<br>
 			<li>
@@ -24,15 +23,17 @@
 		<p>{{director.name}}</p>
 		<br>
 		<h4>Cast<br></h4>
-		<ul class="inline-list small-block-grid-2 small-text-centere medium-block-grid-4 medium-text-left">
-			<li ng-repeat="cast in casts | limitTo:4">
-				<img ng-src="http://image.tmdb.org/t/p/{{castImageSize}}{{cast.profile_path}}" alt="{{cast.name}}"
+		<ul class="list-inline">
+			<li class="col-md-3" ng-repeat="cast in casts | limitTo:4">
+				<img class="img-responsive" ng-src="http://image.tmdb.org/t/p/{{castImageSize}}{{cast.profile_path}}" alt="{{cast.name}}"
 				onerror="this.src='../images/image-not-found.png'"/>
+				<br>
 				<span>{{cast.name}}</span> <br>
 				<span>as {{cast.character}}</span>
 			</li>
 		</ul>
-		<button class="button" ng-click="toggleModal()">
+		<br>
+		<button class="btn btn-primary" ng-click="toggleModal()">
 			View All
 		</button>
 		<modal show='modalShown'>
@@ -64,5 +65,7 @@
 				</li>
 			</ul>
 		</div>
+
 	</div>
 </div>
+
