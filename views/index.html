@@ -11,7 +11,7 @@
 	<meta name="Description" content="A movie app that was created in 2015 by Alex Gomes. He used themoviedb.com as dataset and AngularJS as front-end platform"/>
 	<meta name="robots" content="all">
 
-	<link href="../stylesheets/reset.min.css" rel="stylesheet" type="text/css" />
+	<link href="../stylesheets/kreset.min.css" rel="stylesheet" type="text/css" />
 	<link href='../stylesheets/bootstrap.min.css' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,900|Roboto:400,700,900' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../stylesheets/fontello.css">
@@ -32,10 +32,10 @@
 			</table>
 		</div>
 
-		<div class="col-md-10 columns no-pad">
+		<div class="col-md-10 columns">
 			<div class="row">
 				<div class="col-md-5 columns search">
-					<table class="text-center">
+					<table class="table">
 						<tr>
 							<td>
 								<i class="icon-search"></i>
@@ -47,17 +47,17 @@
 					</table>
 				</div>
 				<div class="col-md-7 columns top-link">
-					<ul class="list-inline block-grid-md-3">
-						<li>
+					<ul class="text-center clearfix">
+						<li class="col-md-3 col-sm-6">
 							<a href="#/popular">Popular</a>
 						</li>
-						<li>
+						<li class="col-md-3 col-sm-6">
 							<a ng-href="#/top_rated/">Top Rated</a>
 						</li>
-						<li>
+						<li class="col-md-3 col-sm-6">
 							<a href="#/upcoming/">Upcoming</a>
 						</li>
-						<li>
+						<li class="col-md-3 col-sm-6">
 							<a href="#/now_playing/">Now Playing</a>
 						</li>
 					</ul>
