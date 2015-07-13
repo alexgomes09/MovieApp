@@ -3,10 +3,11 @@
 	<div class="col-md-4 columns">
 		<img class="img-rounded img-responsive" ng-src="http://image.tmdb.org/t/p/{{imageSize}}{{movie.poster_path}}" alt="{{movie.title}}"/>
 	</div>
-
+	
 	<div class="col-md-8 columns">
-		<h2 style="display: inline">{{movie.title}} </h2><span>&nbsp ({{movie.release_date | date: 'yyyy-MMMM-d'}})</span>
+		<h1 style="display: inline">{{movie.title}} </h1><span>&nbsp ({{movie.release_date | date: 'yyyy-MMMM-d'}})</span>
 		<ul class="genre-list no-pad">
+			<br>
 			<li ng-repeat="genre in movie.genres track by $index">
 				<p>{{genre.name}},</p>
 			</li>
@@ -18,7 +19,7 @@
 		<p>Runtime: {{movie.runtime}} min</p>
 		<br>
 		<h4>Overview<br></h4>
-		<p>{{movie.overview}}</p>
+		<p>{{movie.overview}}</p><br>
 		<h4>Director<br></h4>
 		<p>{{director.name}}</p>
 		<br>

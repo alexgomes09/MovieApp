@@ -45,7 +45,7 @@ app.directive('tooltip',[ '$filter' ,function ($filter) {
 			var movie = $.parseJSON($(this).find('#info').text());
 			$('.movieTooltip').css('transform','scale(1.25)');			
 			$('<div class="movieTooltip"></div>')
-			.html("<h3>" + movie.title + "</h3>" + 
+			.html("<h2>" + movie.title + "</h2>" + 
 				"<strong>Genre: </strong>"+movie.genre_name+
 				"<br><br><strong>Overview: </strong>" + movie.overview + 
 				"<br><br><strong>Released: </strong>" + $filter('date')(movie.release_date,"yyyy-MMMM-d") +
